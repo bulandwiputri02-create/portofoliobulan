@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Profil Mahasiswa | Bulan Dwi Ananda Putri</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fff8fb;
+            color: #493541;
+            line-height: 1.7;
+        }
+
+        :root {
+            --pink: #ec8db5;
+            --pink-dark: #d95f94;
+            --pink-light: #ffe5f0;
+            --pink-pale: #fff4f8;
+            --white: #ffffff;
+            --text: #493541;
+            --muted: #927b88;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 8%;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 4px 25px rgba(217, 95, 148, 0.08);
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: 800;
+            color: var(--text);
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: var(--pink-dark);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text);
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--pink-dark);
+        }
+
+        .nav-links .nav-button {
+            background: var(--pink);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+        }
+
+        .nav-links .nav-button:hover {
+            background: var(--pink-dark);
+            color: white;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 590px;
+            padding: 90px 10%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+            background:
+                radial-gradient(circle at 85% 20%, #ffd5e7 0, transparent 28%),
+                radial-gradient(circle at 10% 90%, #ffe6f1 0, transparent 30%),
+                linear-gradient(135deg, #fff9fc, #fff0f6);
+            overflow: hidden;
+        }
+
+        .hero-text {
+            max-width: 600px;
+            animation: fadeUp 1s ease;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 9px 18px;
+            border: 1px solid #f8c7dc;
+            background: white;
+            border-radius: 30px;
+            color: var(--pink-dark);
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            box-shadow: 0 5px 20px #e88bb51a;
+        }
+
+        .hero h1 {
+            font-size: clamp(35px, 5vw, 58px);
+            line-height: 1.25;
+            font-weight: 800;
+            letter-spacing: -2px;
+            margin-bottom: 22px;
+            color: var(--text);
+        }
+
+        .hero h1 span {
+            color: var(--pink-dark);
+        }
+
+        .hero p {
+            max-width: 510px;
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 32px;
+        }
+
+        .button {
+            display: inline-block;
+            background: linear-gradient(135deg, #f3a2c3, #d95f94);
+            color: white;
+            padding: 14px 27px;
+            border-radius: 14px;
+            font-size: 13px;
+            font-weight: 600;
+            box-shadow: 0 10px 25px #d95f9435;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px #d95f9445;
+        }
+
+        .hero-image {
+            position: relative;
+            flex-shrink: 0;
+            width: 310px;
+            height: 360px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .hero-frame {
+            width: 270px;
+            height: 320px;
+            background: linear-gradient(145deg, #ffc9df, #f19bc1);
+            border: 10px solid white;
+            border-radius: 150px 150px 40px 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 25px 60px #d95f9428;
+            transform: rotate(3deg);
+        }
+
+        .hero-emoji {
+            font-size: 115px;
+            transform: rotate(-3deg);
+        }
+
+        .floating-card {
+            position: absolute;
+            background: white;
+            padding: 13px 18px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px #d95f9420;
+            color: var(--pink-dark);
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .floating-card.one {
+            top: 35px;
+            left: -20px;
+        }
+
+        .floating-card.two {
+            right: -15px;
+            bottom: 35px;
+        }
+
+        /* SECTION UMUM */
+        section {
+            padding: 90px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-title small {
+            display: inline-block;
+            color: var(--pink-dark);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .section-title h2 {
+            font-size: clamp(25px, 4vw, 36px);
+            color: var(--text);
+            letter-spacing: -1px;
+        }
+
+        .section-title p {
+            color: var(--muted);
+            font-size: 13px;
+            margin-top: 10px;
+        }
+
+        /* PROFIL */
+        #profil {
+            background: white;
+        }
+
+        .profile-card {
+            max-width: 950px;
+            margin: auto;
+            padding: 22px;
+            background: white;
+            border: 1px solid #f8e4ed;
+            border-radius: 28px;
+            display: grid;
+            grid-template-columns: 0.9fr 1.4fr;
+            gap: 30px;
+            box-shadow: 0 15px 50px #d95f9410;
+        }
+
+        .profile-left {
+            padding: 40px 25px;
+            background: linear-gradient(145deg, #f7b4d0, #e77eaa);
+            border-radius: 22px;
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .avatar {
+            width: 115px;
+            height: 115px;
+            border-radius: 50%;
+            background: #ffffff45;
+            border: 4px solid #ffffffb5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 55px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 25px #9d426b20;
+        }
+
+        .profile-left h3 {
+            font-size: 18px;
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+
+        .profile-left p {
+            font-size: 12px;
+            color: #fff3f8;
+        }
+
+        .profile-label {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 7px 15px;
+            background: #ffffff35;
+            border-radius: 20px;
+            font-size: 11px;
+        }
+
+        .profile-right {
+            padding: 25px 20px;
+        }
+
+        .profile-right h3 {
+            color: var(--text);
+            font-size: 21px;
+            margin-bottom: 22px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid #f8e9f0;
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .info-icon {
+            width: 43px;
+            height: 43px;
+            flex-shrink: 0;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--pink-pale);
+            font-size: 19px;
+        }
+
+        .info-item small {
+            display: block;
+            color: #b49aa8;
+            font-size: 11px;
+        }
+
+        .info-item strong {
+            display: block;
+            color: var(--text);
+            font-size: 13px;
+            overflow-wrap: anywhere;
+        }
+
+        /* INFORMASI */
+        #informasi {
+            background: #fff8fb;
+        }
+
+        .cards {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            padding: 32px 27px;
+            background: white;
+            border: 1px solid #f9e6ef;
+            border-radius: 24px;
+            transition: 0.35s;
+            box-shadow: 0 8px 30px #d95f9408;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px #d95f9418;
+            border-color: #f1b1ce;
+        }
+
+        .card-icon {
+            width: 65px;
+            height: 65px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffe7f1;
+            border-radius: 20px;
+            font-size: 30px;
+            margin-bottom: 23px;
+        }
+
+        .card:nth-child(2) .card-icon {
+            background: #fff0e8;
+        }
+
+        .card:nth-child(3) .card-icon {
+            background: #f4eaff;
+        }
+
+        .card h3 {
+            color: var(--text);
+            font-size: 17px;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.9;
+        }
+
+        .card-line {
+            width: 40px;
+            height: 4px;
+            background: var(--pink);
+            border-radius: 10px;
+            margin-top: 22px;
+        }
+
+        /* TUJUAN */
+        #tujuan {
+            background: white;
+        }
+
+        .goal-box {
+            max-width: 950px;
+            margin: auto;
+            position: relative;
+            overflow: hidden;
+            padding: 65px 45px;
+            text-align: center;
+            border-radius: 32px;
+            background: linear-gradient(135deg, #f5b2ce, #df75a4);
+            color: white;
+            box-shadow: 0 20px 50px #d95f9425;
+        }
+
+        .goal-box::before,
+        .goal-box::after {
+            content: "";
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: #ffffff18;
+        }
+
+        .goal-box::before {
+            top: -80px;
+            left: -50px;
+        }
+
+        .goal-box::after {
+            bottom: -100px;
+            right: -30px;
+        }
+
+        .goal-icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .goal-box h2 {
+            font-size: clamp(23px, 4vw, 31px);
+            margin-bottom: 18px;
+        }
+
+        .goal-box p {
+            max-width: 650px;
+            margin: auto;
+            color: #fff5f9;
+            font-size: 13px;
+            line-height: 2;
+        }
+
+        .goal-button {
+            display: inline-block;
+            margin-top: 28px;
+            background: white;
+            color: var(--pink-dark);
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .goal-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px #a3447020;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #fff0f6;
+            border-top: 1px solid #f8dce8;
+            text-align: center;
+            padding: 30px 15px;
+        }
+
+        footer .footer-logo {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+
+        footer .footer-logo span {
+            color: var(--pink-dark);
+        }
+
+        footer p {
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        footer .copyright {
+            margin-top: 15px;
+            font-size: 11px;
+            color: #b49aa8;
+        }
+
+        /* ANIMASI */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        /* RESPONSIVE TABLET DAN HP */
+        @media (max-width: 900px) {
+            nav {
+                padding: 18px 5%;
+            }
+
+            .nav-links {
+                gap: 16px;
+            }
+
+            .hero {
+                padding: 75px 6%;
+                gap: 25px;
+            }
+
+            .hero-image {
+                width: 250px;
+                height: 310px;
+            }
+
+            .hero-frame {
+                width: 220px;
+                height: 270px;
+            }
+
+            .hero-emoji {
+                font-size: 90px;
+            }
+
+            .cards {
+                gap: 15px;
+            }
+
+            .card {
+                padding: 25px 20px;
+            }
+
+            .profile-card {
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 650px) {
+            nav {
+                flex-direction: column;
+                gap: 13px;
+                padding: 15px 4%;
+            }
+
+            .logo {
+                font-size: 22px;
+            }
+
+            .nav-links {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 10px 18px;
+            }
+
+            .nav-links a {
+                font-size: 11px;
+            }
+
+            .nav-links .nav-button {
+                padding: 7px 13px;
+            }
+
+            .hero {
+                min-height: auto;
+                flex-direction: column-reverse;
+                text-align: center;
+                padding: 55px 7% 65px;
+                gap: 35px;
+            }
+
+            .hero-image {
+                width: 220px;
+                height: 250px;
+            }
+
+            .hero-frame {
+                width: 195px;
+                height: 230px;
+                border-width: 8px;
+            }
+
+            .hero-emoji {
+                font-size: 80px;
+            }
+
+            .floating-card {
+                padding: 10px 12px;
+                font-size: 10px;
+            }
+
+            .floating-card.one {
+                left: -15px;
+            }
+
+            .floating-card.two {
+                right: -10px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+                letter-spacing: -1px;
+            }
+
+            .hero p {
+                font-size: 13px;
+            }
+
+            section {
+                padding: 65px 6%;
+            }
+
+            .section-title {
+                margin-bottom: 32px;
+            }
+
+            .profile-card {
+                grid-template-columns: 1fr;
+                padding: 15px;
+                gap: 10px;
+            }
+
+            .profile-left {
+                padding: 35px 20px;
+            }
+
+            .profile-right {
+                padding: 20px 10px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+                max-width: 420px;
+            }
+
+            .card {
+                padding: 28px;
+            }
+
+            .goal-box {
+                padding: 45px 23px;
+                border-radius: 25px;
+            }
+
+            .goal-box p {
+                font-size: 12px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <a href="#beranda" class="logo">My<span>Profile.</span></a>
+
+        <div class="nav-links">
+            <a href="#beranda">Beranda</a>
+            <a href="#profil">Profil</a>
+            <a href="#informasi">Informasi</a>
+            <a href="#tujuan" class="nav-button">Tujuan Saya ♡</a>
+        </div>
+    </nav>
+
+    <!-- BERANDA -->
+    <header class="hero" id="beranda">
+
+        <div class="hero-text">
+
+            <div class="badge">♡ WEBSITE PROFIL MAHASISWA</div>
+<img src= "WhatsApp Image 2026-10-24 at 09.19.48 (1).jpeg" widht="100">
+            <h1>
+                Halo, Saya<br>
+                <span>Bulan Dwi<br>Ananda Putri.</span>
+            </h1>
+
+            <p>
+                Selamat datang di website profil saya!
+                Saya seorang mahasiswa Informatika yang sedang
+                belajar mengembangkan website, mengenal web hosting,
+                dan memahami proses publikasi website.
+                Mari mengenal saya lebih dekat!
+            </p>
+
+            <a href="#profil" class="button">
+                Kenali Saya Lebih Dekat &rarr;
+            </a>
+
+        </div>
+
+        <div class="hero-image">
+
+            <div class="hero-frame">
+                <div class="hero-emoji">👩🏻‍💻</div>
+            </div>
+
+            <div class="floating-card one">
+                🌸 Keep Learning
+            </div>
+
+            <div class="floating-card two">
+                ✨ Dream Big!
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- PROFIL -->
+    <section id="profil">
+
+        <div class="section-title">
+            <small>About Me ♡</small>
+            <h2>Mari Berkenalan!</h2>
+            <p>Kenali saya melalui profil singkat berikut ini.</p>
+        </div>
+
+        <div class="profile-card">
+
+            <div class="profile-left">
+
+                <div class="avatar">👩🏻‍🎓</div>
+
+                <h3>Bulan Dwi Ananda Putri</h3>
+
+                <p>Mahasiswa Informatika</p>
+
+                <div class="profile-label">
+                    ✨ Future Web Developer
+                </div>
+
+            </div>
+
+            <div class="profile-right">
+
+                <h3>Informasi Pribadi</h3>
+
+                <div class="info-item">
+                    <div class="info-icon">🌷</div>
+                    <div>
+                        <small>Nama Lengkap</small>
+                        <strong>Bulan Dwi Ananda Putri</strong>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon">🎓</div>
+                    <div>
+                        <small>Program Studi</small>
+                        <strong>Informatika</strong>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon">📚</div>
+                    <div>
+                        <small>Mata Kuliah</small>
+                        <strong>Administrasi Website</strong>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon">💻</div>
+                    <div>
+                        <small>Bidang yang Dipelajari</small>
+                        <strong>Hosting dan Publikasi Website</strong>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- INFORMASI -->
+    <section id="informasi">
+
+        <div class="section-title">
+            <small>My Learning Journey</small>
+            <h2>Perjalanan Belajar Saya</h2>
+            <p>Hal-hal menarik yang sedang saya pelajari.</p>
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <div class="card-icon">💻</div>
+
+                <h3>Pengembangan Website</h3>
+
+                <p>
+                    Mempelajari HTML dan CSS untuk membuat
+                    halaman website yang cantik, menarik,
+                    responsif, dan mudah digunakan.
+                </p>
+
+                <div class="card-line"></div>
+
+            </div>
+
+            <div class="card">
+
+                <div class="card-icon">🌐</div>
+
+                <h3>Web Hosting</h3>
+
+                <p>
+                    Mengenal layanan hosting sebagai tempat
+                    menyimpan file website agar dapat diakses
+                    melalui internet kapan saja.
+                </p>
+
+                <div class="card-line"></div>
+
+            </div>
+
+            <div class="card">
+
+                <div class="card-icon">🚀</div>
+
+                <h3>Publikasi Website</h3>
+
+                <p>
+                    Belajar mengunggah dan memublikasikan
+                    website agar dapat dilihat dan digunakan
+                    oleh orang lain secara online.
+                </p>
+
+                <div class="card-line"></div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- TUJUAN -->
+    <section id="tujuan">
+
+        <div class="goal-box">
+
+            <div class="goal-icon">🎀</div>
+
+            <h2>Dream, Learn & Grow!</h2>
+
+            <p>
+                Website ini dibuat untuk memenuhi kegiatan praktik
+                mata kuliah Administrasi Website. Melalui proyek ini,
+                saya ingin meningkatkan kemampuan dalam membuat
+                halaman web menggunakan HTML dan CSS, menciptakan
+                tampilan yang responsif, serta memahami proses hosting
+                dan publikasi website ke internet.
+                Semoga setiap langkah kecil menjadi awal dari
+                perjalanan yang besar!
+            </p>
+
+            <a href="#beranda" class="goal-button">
+                Kembali ke Beranda ↑
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-logo">
+            My<span>Profile.</span>
+        </div>
+
+        <p>Dibuat dengan ♡ oleh Bulan Dwi Ananda Putri</p>
+
+        <p class="copyright">
+            &copy; 2026 Website Profil Mahasiswa..
+        </p>
+
+    </footer>
+
+</body>
+</html>
